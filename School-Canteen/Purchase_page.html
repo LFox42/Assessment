@@ -1,0 +1,32 @@
+<html>
+	% include('shared/header.html')
+	% include('shared/Navbar.html')
+	
+	<body class=" blue darken-4">
+	    <div class="row red accent-4">
+			<div class="col s12 center">Pay at the Canteen</div>
+			% for food in store_list:
+				<div class="row">
+					<div class="col s12 m6">
+						<div class="card brown darken-4">
+							<div class="card-content white-text">
+								<span class="card-title"> {{food.image}} </span>
+								<p> {{food.name}}: {{food.amount}} available </p>
+							</div>
+							<div class="card-action">
+								%if food.amount > 0:
+									<a href="/purchase-success/{{food.id}}">Purchase</a>
+								% end
+							</div>
+							<div class="card-action">
+								<a href="restock/{{food.id}}">Restock</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			% end
+		</div>
+	</body>
+
+	</div>
+</html>
