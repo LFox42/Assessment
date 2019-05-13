@@ -55,13 +55,14 @@ def purchase_success(food_id):
 @route('/restock/<food_id>')
 @view('restock')
 def Restock(food_id):
+    restock_amount = request.forms.get('amount')
     food_id = int(food_id)
     found_food = None
     for food in store_test:
         if food.id == food_id:
             found_food = food
     data = dict (food = found_food)
-    found_food.amount = found_food.amount = 25
+    found_food.amount = found_food.amount + 1
     return data 
 
 
