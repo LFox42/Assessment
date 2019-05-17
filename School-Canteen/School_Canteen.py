@@ -6,18 +6,17 @@
 
 
 from bottle import run, route, view, get, post, request, static_file
-from itertools import count
 
 ###Class START WITH CAPITAL LETTERS
 
 class Food:
     
     # _ signifies a private variable. not to be used outside of this class.
-    _ids = count (0)
+
     
     def __init__(self, name, image, amount): 
         #not passing ID as we want it to create it.
-        self.id = next(self._ids)
+
         self.name = name
         self.image = image
         self.amount = amount
@@ -30,6 +29,7 @@ store_test = [
     Food("Ham and Cheese Sandwiches", "image",4),
     ]
 
+curr_food = None #store_test[0]
 #Pages
 
 #Store page
@@ -40,30 +40,34 @@ def Purchase():
     data = dict (store_list = store_test)
     return data
 
-@route('/purchase-success/<food_id>')
+@route('/purchase-success/<food_name>')
 @view('purchase-success')
-def purchase_success(food_id):
-    food_id = int(food_id)
+def purchase_success(food_name):
     found_food = None
     for food in store_test:
-        if food.id == food_id:
+        if food.name == food_name:
             found_food = food
     data = dict (food = found_food)
     found_food.amount = found_food.amount - 1
     return data
 
-@route('/restock/<food_id>')
+@route('/restock/<food_name>')
 @view('restock')
-def Restock(food_id):
-    restock_amount = request.forms.get('amount')
-    food_id = int(food_id)
+def Restock(food_name):
+    global curr_food
     found_food = None
     for food in store_test:
-        if food.id == food_id:
-            found_food = food
-    data = dict (food = found_food)
-    found_food.amount = found_food.amount + 1
-    return data 
+        if food.name == food_name:
+            found_food = food    
+    curr_food = found_food
+
+@route('/restock_success', method="POST")
+@view('restock_success')
+def restock_success():
+    amount = request.forms.get('amount')
+    curr_food.amount += int(amount)
+    return dict(food = curr_food)
+
 
 
 

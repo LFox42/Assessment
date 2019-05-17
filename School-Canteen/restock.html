@@ -3,13 +3,13 @@
 	% include('shared/Navbar.html')
 		<body class=" blue darken-4">
 		<div class="row">
-    <form class="col s12" action = "/" method="post">
+    <form class="col s12" action = "/restock_success" method="POST">
       <div class="row">
         <div class="input-field col s6 offset-s5 center-align">
-          <input placeholder="Restock" id="imp_amount" name="name" type="int" class="validate">
+          <input placeholder="Restock" id="imp_amount" name="amount" type="int" class="validate">
           <label for="amount">How much would you like to restock?</label>
         </div>
-		<button class="col s2 offset-s5 center-align waves-effect waves-red btn"><i class="material-icons left">done</i>submit</button>
+		<button class="col s2 offset-s5 center-align waves-effect waves-red btn" name="action"><i class="material-icons left">done</i>submit</button>
       </div>
 	  <div class="">
 	  </div>
