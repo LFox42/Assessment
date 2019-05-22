@@ -4,14 +4,14 @@
 	
 	<body class=" blue darken-4">
 	    <div class="row red accent-4">
-			<div class="col s12 center">Pay at the Canteen</div>
+			<div class="col s12 center"><h5>Pay at the Canteen</h5></div>
 			% for food in store_list:
 				<div class="row">
 					<div class="col s12 m6">
 						<div class="card brown darken-4">
 							<div class="card-content white-text">
 								<span class="card-title"> {{food.image}} </span>
-								<p> {{food.name}}: {{food.amount}} available </p>
+								<p> {{food.name}}: {{food.amount}} available, {{food.sold}} sold. </p>
 							</div>
 							<div class="card-action">
 								%if food.amount > 0:

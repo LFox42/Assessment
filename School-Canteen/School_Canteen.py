@@ -14,19 +14,20 @@ class Food:
     # _ signifies a private variable. not to be used outside of this class.
 
     
-    def __init__(self, name, image, amount): 
+    def __init__(self, name, image, amount, sold): 
         #not passing ID as we want it to create it.
-
+        
         self.name = name
         self.image = image
         self.amount = amount
+        self.sold = sold
 
 
 #Data on products in stock.
 store_test = [
-    Food("Sushi Roll Pack", "image", 5),
-    Food("Hot Dog and Chips", "image", 12),
-    Food("Ham and Cheese Sandwiches", "image",4),
+    Food("Sushi Roll Pack", "image", 5, 0),
+    Food("Hot Dog and Chips", "image", 12, 0),
+    Food("Ham and Cheese Sandwich", "image", 4, 0),
     ]
 
 curr_food = None
@@ -51,6 +52,7 @@ def purchase_success(food_name):
             found_food = food
     data = dict (food = found_food)
     found_food.amount = found_food.amount - 1
+    found_food.sold = found_food.sold + 1
     return data
 
 #to input the amount to restock
