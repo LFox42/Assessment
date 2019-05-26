@@ -1,0 +1,21 @@
+<html>
+	% include('shared/header.html')
+	% include('shared/Navbar.html')
+		<body class=" blue darken-4">
+		<div class="row">
+    <form class="col s12" action = "/restock_success" method="POST">
+      <div class="row">
+        <div class="input-field col s6 offset-s5 center-align">
+          <input type="number" min="0" placeholder="Restock" id="imp_amount" name="amount" type="int" class="validate" value="1" required >
+          <label for="amount">How much would you like to restock?</label>
+        </div>
+		<button class="col s2 offset-s5 center-align waves-effect waves-red btn" name="action"><i class="material-icons left">done</i>submit</button>
+      </div>
+	  <div class="">
+	  </div>
+    </form>
+  </div>
+	</body>
+	
+	
+</html>
