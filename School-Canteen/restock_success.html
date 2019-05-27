@@ -1,10 +1,15 @@
 <html>
 	% include('shared/header.html')
 	% include('shared/Navbar.html')
-	<body class=" blue darken-4">
+	<body class=" blue darken-4 col s6 center-align">
 		<div>
-			<p>Restock Successful</p>
-			<p>{{food.amount}}</p>
+			<h2>Restock Successful</h2>
+			<h4>{{food.amount}} available</h4>
+			<div class="card brown darken-4 col s12 m6">
+				<div class="card-action">
+					<h5><a href="/">Return to store page</a></h5>
+				</div>
+			</div>
 		</div>
 	</body>
 	
