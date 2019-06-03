@@ -16,8 +16,7 @@ Ver 4.0:
 Add restock imput
 
 Ver 5.0:
-Add user name, 
-Add Have in/takeaway
+Add sold amount
 
 Ver 6.0:
 Add Images, 
