@@ -25,9 +25,9 @@ class Food:
 
 #Data on products in stock.
 store_test = [
-    Food("Sushi Roll Pack", "image", 5, 0),
-    Food("Hot Dog and Chips", "image", 12, 0),
-    Food("Ham and Cheese Sandwich", "image", 4, 0),
+    Food("Sushi Roll Pack", "sushi_roll_pack.jpg", 5, 0),
+    Food("Hot Dog and Chips", "hot_dog_and_chips.jpg", 12, 0),
+    Food("Ham and Cheese Sandwich", "ham_and_cheese_sandwich.jpg", 4, 0),
     ]
 
 curr_food = None
@@ -75,6 +75,8 @@ def restock_success():
     return dict(food = curr_food)
 
 
-
+@route ('/picture/<filename>')
+def serve_picture (filename):
+    return static_file (filename, root = './images')
 
 run(host='0.0.0.0', port = 8080, reloader=True, debug=True)
