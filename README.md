@@ -22,10 +22,4 @@ Ver 6.0:
 Add Images, 
 Visual Fixes
 
-Ver 7.0:
-
-
-Ver 8.0:
-
-
-Ver 9.0:
+screenshot github
