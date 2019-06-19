@@ -22,4 +22,3 @@ Ver 6.0:
 Add Images, 
 Visual Fixes
 
-screenshot github
