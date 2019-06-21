@@ -1,8 +1,8 @@
+#School Canteen
 
-
-#Build log for Sign up web page
-#Ver 1.1 - Created TEST data for Ticket variable
-#Ver 1.2 - Adding server functionality to python
+#Ver 1.0: Create bottle server, create classes
+#Ver 2.0: Create HTML for 
+#Ver 3.0: Add Purchase/Restock pages
 
 
 from bottle import run, route, view, get, post, request, static_file
@@ -36,13 +36,14 @@ store_test = [
 @route('/')
 @view ('Purchase_Page')
 def Purchase():
-    #buy and restock books
+    #buy and restock product
     data = dict (store_list = store_test)
     return data
 
 @route('/purchase-success/<food_id>')
 @view('purchase-success')
 def purchase_success(food_id):
+    #removes 1 food
     food_id = int(food_id)
     found_food = None
     for food in store_test:
@@ -53,5 +54,5 @@ def purchase_success(food_id):
     return data
 
 
-
+#address to main page (localhost:8080)
 run(host='0.0.0.0', port = 8080, reloader=True, debug=True)
