@@ -42,7 +42,7 @@ curr_food = None
 @route('/')
 @view ('Purchase_Page')
 def Purchase():
-    #buy and restock books
+    #buy and restock product
     data = dict (store_list = store_test)
     return data
 
