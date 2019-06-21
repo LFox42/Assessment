@@ -1,8 +1,8 @@
 
+#School Canteen
 
-#Build log for Sign up web page
-#Ver 1.1 - Created TEST data for Ticket variable
-#Ver 1.2 - Adding server functionality to python
+#Ver 1.0: Create bottle server, create classes
+#Ver 2.0: Create HTML for 
 
 
 from bottle import run, route, view, get, post, request, static_file
@@ -40,5 +40,5 @@ def index():
     data = dict (comic_list = comic_test)
     return data
 
-
+#address to main page (localhost:8080)
 run(host='0.0.0.0', port = 8080, reloader=True, debug=True)
