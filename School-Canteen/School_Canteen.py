@@ -1,8 +1,12 @@
 
+#School Canteen
 
-#Build log for Sign up web page
-#Ver 1.1 - Created TEST data for Ticket variable
-#Ver 1.2 - Adding server functionality to python
+#Ver 1.0: Create bottle server, create classes
+#Ver 2.0: Create HTML for 
+#Ver 3.0: Add Purchase/Restock pages
+#Ver 4.0: Add restock imput
+#Ver 5.0: Add sold amount
+#Ver 6.0: Add Images, Visual Fixes
 
 
 from bottle import run, route, view, get, post, request, static_file
@@ -38,7 +42,7 @@ curr_food = None
 @route('/')
 @view ('Purchase_Page')
 def Purchase():
-    #buy and restock books
+    #buy and restock Product
     data = dict (store_list = store_test)
     return data
 
@@ -46,6 +50,7 @@ def Purchase():
 @route('/purchase-success/<food_name>')
 @view('purchase-success')
 def purchase_success(food_name):
+    #removes 1 food, adds one the the amount sold
     found_food = None
     for food in store_test:
         if food.name == food_name:
@@ -74,9 +79,10 @@ def restock_success():
     curr_food.amount += int(amount)
     return dict(food = curr_food)
 
-
+#to find and display images
 @route ('/picture/<filename>')
 def serve_picture (filename):
     return static_file (filename, root = './images')
 
+#address to main page (localhost:8080)
 run(host='0.0.0.0', port = 8080, reloader=True, debug=True)
