@@ -46,12 +46,13 @@ def Purchase():
     data = dict (store_list = store_test)
     return data
 
-#the purshase was successful.
+# if the purshase was successful.
 @route('/purchase-success/<food_name>')
 @view('purchase-success')
 def purchase_success(food_name):
     #removes 1 food, adds one the the amount sold
     found_food = None
+    #if the selected food equals matches the Food class, then minus 1 from food.amount and add 1 to food.sold
     for food in store_test:
         if food.name == food_name:
             found_food = food
